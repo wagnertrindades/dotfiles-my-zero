@@ -1,0 +1,100 @@
+
+" Custom color
+color smyck
+set guifont=Ubuntu\ Mono\ 12
+"set guifont=Dejavu\ Sans\ Mono\ for\ Powerline\ Bold\ 10
+
+" Strips white spaces on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Forcing the use of hjkl keys to navigate
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+
+if has("gui_running")
+  set lines=57
+  set columns=237
+  set colorcolumn=100
+endif
+
+" Management tabs
+nnoremap <C-t> :tabnew<cr>
+nnoremap <C-T> :tabnew<cr>
+nnoremap <A-w> :q<cr>
+nnoremap <A-W> :q<cr>
+
+set guioptions-=T  "remove top bar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
+
+" NerdTree Toggle shortcut
+map <C-n> :NERDTreeToggle<CR>
+
+" Configure Vim Wiki
+set nocompatible
+filetype plugin on
+syntax on
+
+" Default encoding
+set encoding=utf-8
+
+" Unicode symbols for airline
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+let g:airline_powerline_fonts=1
+
+" Disables NERDTree auto open
+let g:nerdtree_tabs_open_on_gui_startup = 0
+
+" Split pane shortcuts
+" New vertical pane, moving to new pane
+nnoremap <leader>v <C-w>v<C-w>l
+" New horizontal pane, moving to new pane
+nnoremap <leader>s <C-w>s<C-w>j
+" Move through panes
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l""
+
+" Searching
+set hlsearch    " highlight matches
+set incsearch   " incremental searching
+set ignorecase  " searches are case insensitive...
+set smartcase   " ... unless they contain at least one capital letter
+
+" Backup and swap files
+set backupdir^=~/.vim/_backup//    " where to put backup files.
+set directory^=~/.vim/_temp//      " where to put swap files.
+set noswapfile
